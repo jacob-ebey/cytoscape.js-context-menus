@@ -271,6 +271,12 @@
         };
 
         var $menuItemComponent = $(itemStr);
+        
+        var showMenuItem = (typeof(item.show) === 'undefined' || item.show);
+        if (typeof showMenuItem === 'function') {
+          showMenuItem = showMenuItem(item)
+          showMenuItem = (typeof showMenuItem === 'undefined' || showMenuItem;
+        }
 
         $menuItemComponent.data('selector', item.selector); 
         $menuItemComponent.data('on-click-function', item.onClickFunction);
